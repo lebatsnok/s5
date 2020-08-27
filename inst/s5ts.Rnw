@@ -1,0 +1,83 @@
+\documentclass[a4paper]{article}
+\usepackage[utf8]{inputenc}
+\usepackage[margin=1.5cm]{geometry}
+\usepackage{graphicx}
+\usepackage{amsmath}
+\usepackage[estonian]{babel}
+\usepackage{xcolor}%%%%
+\definecolor{lightgray}{gray}{0.9}%%%
+\title{Isiksusetesti tulemused}
+\date{22. aprill 2015}
+\author{Kenn Konstabel}
+% use sans fonts
+\renewcommand{\familydefault}{\sfdefault}
+
+\begin{document}
+\pagenumbering{gobble} 
+\newpage
+\pagenumbering{arabic}  
+
+% \noindent\includegraphics[height=2cm]{pix/tai}
+
+
+~\\~\\
+%%% LAPSEVANEMA NIMI
+\textbf{{\LARGE Isiksusetesti S5 tagasiside: \Sexpr{paste(Nimi, sep=" ")}}} 
+~\\
+
+Uuringus kasutatud isiksustest S5 põhineb viiefaktorilisel isiksusemudelil, mille komponentideks on: 
+
+\begin{table}[h!] \centering
+%\colorbox{lightgray}{%
+\begin{tabular}{p{3.5cm} p{12cm}}
+\hline
+\textbf{Neurootilisus}   &  	kalduvus muretseda ja kogeda negatiivseid emotsioone (hirm, kurbus, süütunne, viha jne). \\
+\hline
+\textbf{Ekstravertsus}    &   kalduvus olla seltskondlik ja kogeda positiivseid emotsioone. Ekstravert eelistab rahvarohkeid kogunemisi, on aktiivne, enesekindel ja jutukas. Madala ekstravertsusega inimesed (introverdid) eelistavad üksindust, kuid üksiolemine ei tee neid õnnetuks. \\
+\hline
+\textbf{Avatus kogemusele} &  uudishimulikkus, huvi ümbritseva maailma, erinevate ideede ja tegevuste ning oma siseelu vastu.  Kõrge avatusega inimesed on ebakonventsionaalsemad, võtavad hõlpsasti omaks uusi ideid ja väärtusi. Madala skooriga inimesed on pigem konservatiivid, kes eelistavad järeleproovitut uuele ja tundmatule. \\
+\hline
+\textbf{Leplikkus} & kalduvus usaldada teisi inimesi, olla omakasupüüdmatu ja leplik. Kõrge skooriga inimesed on valmis teisi aitama, olles veendunud, et teised vastavad neile samaga. Madala skooriga inimene on pigem enesekeskne ja skeptiline teiste kavatsuste suhtes. \\
+\hline
+\textbf{Meelekindlus} & kalduvus kontrollida oma soove ja impulsse. Meelekindlad inimesed planeerivad oma tegevusi ette, organiseerivad oma elu ja viivad oma kavatsused ellu ka siis, kui see nõuab neilt pingutust ja
+enesedistsipliini. \\
+\hline
+\end{tabular}
+\end{table}
+
+Tagasisidelehel on Teie tulemused kujutatud graafiliselt. Iga omaduse kõige suurem võimalik väärtus (näiteks maksimaalne ekstravertsus) on tähistatud 1-ga ning kõige väiksem võimalik väärtus (näiteks äärmuslik introvertsus kui ekstravertsuse vastand) -1-ga. Kui Teie vastused ei väljenda kumbagi äärmust (näiteks Te ei ole ei ekstravert ega introvert, vaid vahepealne), siis on tulemus lähedal 0-le.
+
+Tagasiside joonis näitab Teie tulemust võrreldes Eesti täiskasvanutega. Tumesinine riba näitab vahemikku, millesse jääb 50\% vastustest, helesinine (koos tumesinisega) vahemikku, kuhu jääb 75\% vastustest. Teie tulemust näitab punane kolmnurk. (Allpool on ka selgitav joonis.)
+
+<<echo=FALSE, fig.height=3, fig.width=7>>=
+    library(psycho)
+    load(".RData")
+    doq<-function(QUUX) t(sapply(QUUX ,quantile, c(.125, .25, .5, .75, .875), na.rm=TRUE))
+    QUUX <- doq(NORMID[,1:5])
+
+Omadused <- c("Neurootilisus", "Ekstravertsus", "Avatus \nkogemusele", "Koostöövalmidus", "Meelekindlus")
+wimplot(QUUX, c(N, E, O, A, C), NAMES=Omadused, ,XAX=c(-1,0,1), restore.op=FALSE)
+abline(v=-1:1, lty="dotted")
+@
+<<echo=FALSE, fig.height=2.25, fig.width=7>>=
+    wimplot(QUUX, rep(NA,5), NAMES=paste(rep("", 5)), restore.op=FALSE)
+    abline(v=-1:1, lty="dotted")
+    foo <- QUUX[5,]
+    arrows(foo[1], 5, foo[5], 5, lwd=3, col="red", code=3, angle=90, length=0.04)
+    text(mean(foo), 4.7, "75% vastajatest", col="red", cex=0.5)
+    foo <- QUUX[4,]
+    arrows(foo[2], 4, foo[4], 4, lwd=3, col="red", code=3, angle=90, length=0.04)
+    text(mean(foo), 3.6, "50%\nvastajatest", col="red", cex=0.5)
+    foo <- QUUX[2,]
+    points(foo[3], 2, pch=17, cex=1.5, col="red")
+    text(mean(foo), 1.7, "Teie tulemus", cex=0.5, col="red", font=2)
+    arrows(-0.9,1, -1,1, length=0.1, col="red", lwd=2)
+    text(-0.85,1, "Minimaalne \nvõimalik \ntulemus", cex=0.5, adj=0, col="red")
+    arrows(0.9,1, 1,1, length=0.1, col="red", lwd=2)
+    text(0.85,1, "Maksimaalne \nvõimalik \ntulemus", cex=0.5, adj=1, col="red")
+@
+
+
+
+
+\end{document}

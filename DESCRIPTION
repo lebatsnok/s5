@@ -1,0 +1,10 @@
+Package: s5
+Type: Package
+Title: Functions to compute scores on S5 
+Version: 0.1
+Date: 2020-08-27
+Author: Kenn Konstabel
+Maintainer: Kenn Konstabel <lebatsnok@gmail.com>
+Description: Scoring S5
+License: GPL
+RoxygenNote: 7.1.0
