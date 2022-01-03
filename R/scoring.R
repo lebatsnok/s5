@@ -124,10 +124,10 @@ cronbach <- function (v1)
 #' cronbach2
 #' 
 #'
-#' @param D x
-#' @param Key x
-#' @param Mid x
-#' @param what x
+#' @param D data set
+#' @param Key scoring key
+#' @param Mid scale middle point
+#' @param what with hierarchical scoring keys, use "D" to compute 'domain' scores , "F" for 'facet' scores,  and "DF" for both.  
 #' @param format 'm' or 's'
 #' @param print.all FALSE
 #' @return x

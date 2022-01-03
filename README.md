@@ -11,3 +11,5 @@ Use:  `score2(my_data_file[, S5_columns], key.s5, average=TRUE, hofstee=TRUE)`
 Other available keys: `xs5.key` (34-item version) and `xs5.key2` (34-item version, updated A4 item)
 
 Updates will follow as needed :)
+
+

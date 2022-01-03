@@ -3,6 +3,7 @@
 export()
 export(cronbach)
 export(cronbach2)
+export(key2df)
 export(s5.key)
 export(score)
 export(score2)

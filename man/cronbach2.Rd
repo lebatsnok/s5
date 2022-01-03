@@ -14,13 +14,13 @@ cronbach2(
 )
 }
 \arguments{
-\item{D}{x}
+\item{D}{data set}
 
-\item{Key}{x}
+\item{Key}{scoring key}
 
-\item{Mid}{x}
+\item{Mid}{scale middle point}
 
-\item{what}{x}
+\item{what}{with hierarchical scoring keys, use "D" to compute 'domain' scores , "F" for 'facet' scores,  and "DF" for both.}
 
 \item{format}{'m' or 's'}
 
