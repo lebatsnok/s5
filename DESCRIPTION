@@ -1,6 +1,6 @@
 Package: s5
 Type: Package
-Title: Functions to compute scores on S5 
+Title: Functions to compute scores on S5.
 Version: 0.1
 Date: 2020-08-27
 Author: Kenn Konstabel
