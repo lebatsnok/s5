@@ -3,6 +3,7 @@
 R package to score s5
 
 Install: `devtools::install_github("lebatsnok/s5")`
+(see https://gist.github.com/z3tt/3dab3535007acf108391649766409421)
 
 Use:  `score2(my_data_file[, S5_columns], key.s5, average=TRUE, hofstee=TRUE)`
 * set `average=TRUE` to  computes scores as averages [as opposed to sums]
@@ -11,5 +12,3 @@ Use:  `score2(my_data_file[, S5_columns], key.s5, average=TRUE, hofstee=TRUE)`
 Other available keys: `xs5.key` (34-item version) and `xs5.key2` (34-item version, updated A4 item)
 
 Updates will follow as needed :)
-
-
